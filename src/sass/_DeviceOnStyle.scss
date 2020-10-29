@@ -1,0 +1,1361 @@
+@charset "UTF-8";
+
+// === 大架構 (head footer)
+// === 登入頁架構 (登出 修改密碼之類的)
+// === 概觀架構
+// === 內頁架構
+// === 細節 (table icon)
+
+
+// ======================================================================= 大架構 (head footer)
+:root{
+	--baseBackground:#dedce0;
+	--baseBackDashbord:#ffffff;
+  --baseHeader: #2d2d2e;
+	--baseSideBar: #eeeeee;
+	--baseA: #333333;
+	--baseTheme:#333333;
+	--baseText:#333333;
+	--baseBorder:#dcdcdc;
+	--loginTopBg:#d43f8d;
+	--loginBottomBg: #0250c5;
+}
+*{
+	box-sizing: border-box;
+}
+body {
+	height: 100%;
+	font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+
+	#app {
+		height: 100%;
+		overflow-x: hidden; //carol
+	}
+	.layout{
+		margin-bottom: 52px;
+		@media screen and (max-width: 991px){
+			margin-bottom: 0px;
+		}
+	}
+}
+
+// ----------------- footer
+.made-by-footer{
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	height: calc(#{$layout-padding} + #{$widget-mb});
+	width: 100%;
+	color: $text-color;
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 14px;
+	line-height: 1.2;
+	text-align: center;
+	@media (max-width: 500px){
+		padding-bottom: 8px;
+		height: calc(26px + 0.8rem);
+	}
+	.remain-days{
+		float: right;
+		padding: 0 20px 0 10px;
+	}
+}
+
+// ----------------- text
+h4{
+	color: $text-color
+}
+a{
+	color: $theme-base;
+	&:hover{
+		color: $text-color;
+	}
+}
+input{
+	color: var(--baseText, #333333) !important;
+}
+
+
+// ======================================================================= 登入頁架構
+.Login{
+	// logo
+	.getLogoImg{
+		width: auto;
+		height: auto;
+		max-width: 338px;
+		max-height: 88px;
+		display: block;
+		margin: 40px auto;
+	}
+	//原始的logo
+	.logo-icon {
+		margin-top: 5%;
+		width: 350px;
+		height: auto;
+		@media (max-width:767px){
+			width: 250px;
+			height: auto;
+			display: none;
+		}
+		&.noMT{
+			margin-top: 0%;
+		}
+	}
+	.logo-iconM {
+		margin-top: 5%;
+		width: 350px;
+		height: auto;
+		display: none;
+		@media (max-width:767px){
+			margin-top: 0%;
+			width: 250px;
+			height: auto;
+			display: block;
+		}
+		&.noMT{
+			margin-top: 0%;
+		}
+	}
+	//標題
+	.LoginDescription {
+		font-size: 1.5rem;
+		margin-top: 10px;
+		text-align: center;
+		color: #333333;
+		@media (max-width:767px){
+			font-size: 1.2rem;
+			margin-top: 10px;
+			text-align: center;
+			color: #ccc;
+		}
+	}
+
+	//登入按鈕
+	.btn-login {
+		font-weight: bold;
+		font-size: 20px;
+	}
+	.btn{
+		margin-bottom:10px;
+	}
+
+	.content{
+		width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    background: linear-gradient(5deg, $login-bottom-bg, $login-top-bg);
+    overflow-x: hidden;
+    overflow-y: auto;
+	}
+	.LoginBg {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: -1;
+		background-repeat: no-repeat;
+		display: block;
+		background-size: cover;
+		background-position: center;
+	}
+	.white-panel{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: white;
+		padding: 3rem;
+		width: 666px;
+		@media (max-width:767px){
+			width: 100%;
+			top: 47%;
+			left: 50%;
+			padding: 1rem;
+			background: transparent;
+		}
+		.abc-label-text{
+			color: #333333 !important;
+			@media (max-width:767px){
+				color: #ffffff !important;
+			}
+		}
+		.input-group{
+			color: #333333 !important;
+			@media (max-width:767px){
+				color: #ffffff !important;
+			}
+			input{
+				color: #333333 !important;
+				@media (max-width:767px){
+					color: #ffffff !important;
+				}
+				&:valid{
+					color: #333333 !important;
+					@media (max-width:767px){
+						color: #ffffff !important;
+					}
+				}
+			}
+		}
+	}
+	
+	.input-div{
+    margin: 0 auto;
+		margin-top: 5%;
+		width: 80%;
+		@media (max-width:767px){
+			width: 95%;
+		}
+		.form-group{
+			margin-bottom: 2.2rem;
+			// &.mb-big{
+			// 	@media (max-width:767px){
+			// 		margin-bottom:80px;
+			// 	}
+			// }
+		}
+	}
+	.form-group.has-error{
+		margin-bottom: 3.6rem;
+		@media (max-width:767px){
+			margin-bottom:4rem;
+		}
+	}
+	.other-option{
+		margin-bottom: 1.5rem;
+		
+	}
+	.input-check {
+		width: 100%;
+	}
+	.checkbox-panel{
+		margin-left: 32px;
+		@media (max-width:767px){
+			margin-left: 25px;
+		}
+	}
+	.custom-checkbox{
+		padding-left: 0px !important;
+    padding-right: 0px !important;
+	}
+
+	//忘記密碼
+	.link-forget{
+		margin-top: 5px;
+	}
+	.link-forget-password{
+		color: #333333 !important;
+		text-decoration: underline !important;
+		font-size: 1rem;
+		margin-top: 5px;
+		@media (max-width:767px){
+			color: #ffffff !important;
+      font-weight: normal;
+		}
+	}
+
+	//輸入
+	input{
+		@media (max-width:767px){
+			color: #ffffff !important;
+      font-weight: normal;
+		}
+	}
+
+	//輸入寫錯的狀態
+	@media (max-width:767px){
+		.form-group input:focus ~ .control-label {
+			color: white;
+		}
+		//寫對
+		.form-group input:valid ~ .control-label {
+			color: $theme-base;
+		}
+		.form-group .bar::before{
+			background: #ffffff;
+		}
+	}
+
+	//登入按鈕狀態
+	.disbleButton {
+		background: #c3c3c3 !important;
+		box-shadow: none !important;
+		-webkit-box-shadow: none !important;
+	}
+
+	//忘記按鈕狀態
+	.link-forgot-password {
+		color: $text-color;
+		text-decoration: underline;
+		font-size: 1rem;
+		margin-top: 5px;
+		
+		@media (max-width:767px){
+			margin-top: 20px;
+			margin-bottom: 20px;
+			padding: 1.1rem;
+			color: #ffffff;
+		}
+	}
+	.btn-forgotPassword{
+		margin-bottom: 30px;
+	}
+
+	//不清楚先放
+	.btn-create {
+		margin: 8px;
+		width: 200px;
+		font-weight: bold;
+		font-size: 24px;
+		background: transparent;
+		border: 4px solid $text-color;
+		color: $text-color;
+		margin-top: 16px;
+	}
+
+	// QRcode
+	.btn-Generate {
+		font-weight: bold;
+		font-size: 20px;
+		font-family: "微軟正黑體";
+		padding: 0;
+		display: block;
+		width: 100%;
+		letter-spacing: 0;
+		height: 40px;
+		line-height: 38px;
+	}
+	.QRcode-box{
+		width: 80%;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 40px;
+	}
+	.qrcodeSVG{
+		width: 38%;
+		display: inline-block;
+		vertical-align: top;
+		cursor: pointer;
+		@media(max-width:768px){
+			text-align: center;
+      margin: 15px 0;
+		}
+	}
+	.qrcodeinnerbox{
+		width: 170px;
+		margin: 0 auto;
+	}
+	.notes{
+		width: 62%;
+		display: inline-block;
+		text-align: justify;
+		@media(max-width:768px){
+			width:100%;
+			display:block;
+		}
+	}
+}
+
+
+// ======================================================================= 概觀架構
+
+
+// ======================================================================= 內頁架構
+.content{
+	.search-box{
+		padding: 4px;
+		margin-bottom: 15px;
+	}
+	.vuestic-widget-body{
+		padding: 0 ;
+		margin: 0;
+	}
+	.content{
+		padding: 1.6em 1.8rem;
+    min-height: 600px;
+	}
+	// 內頁下拉選單
+	.vuestic-scrollbar{
+		border-right: none;
+		.scrollbar-wrapper{
+			box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.09);
+			border: 1px solid #d0cece;
+			max-height: 200px;
+		}
+	}
+	.form-group.select-form-group{
+		.dropdown-item{
+			color: $text-color;
+			border-bottom: 1px solid $border-color;
+			&:hover{
+				color: $white !important;
+				background-color: $theme-base;
+			}
+		}
+	}
+	//表格
+	.table{
+		background-color: transparent;
+		color: $text-color;
+		margin-bottom: 0px;
+		thead{
+			tr{
+				color: #ffffff !important;
+				background: $theme-base;
+			}
+		}
+		.table-bordered{
+			td{
+				border: 1px solid $border-color;
+			}
+		}
+		// 有排序功能
+		.VueTables__sortable {
+			position: relative;
+		}
+		.VueTables__heading{
+			color: #ffffff !important;
+			width: 90%;
+			font-size: 13px;
+			padding-right: 1rem;
+		}
+		.VueTables__sort-icon{
+			color: #ffffff !important;
+			display: inline-block;
+	
+			&.pull-right{
+				position: absolute;
+				top: 52%;
+				right: 5px;
+				transform: translateY(-50%);
+			}
+		}
+	}
+	//解決下拉問題
+	.vuestic-simple-select{
+		.dropdown-menu-content{
+			max-height: none;
+		}
+		.vuestic-scrollbar{
+			border-right:none;
+			max-height: none;
+			background: transparent;
+			.scrollbar-wrapper{
+				max-height: 300px;
+
+			}
+		}
+	}
+
+	::-webkit-scrollbar{
+		width: 8px;
+		height: 8px;
+		background-color: #F5F5F5;
+	}
+	::-webkit-scrollbar-track{
+		box-shadow: inset 0 0 0 rgba(255, 255, 255, 0.3);
+		border-radius: 0;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+	::-webkit-scrollbar-thumb{
+		border-radius: 0;
+		background-color: $theme-base;
+	}
+}
+
+//加入設備
+//addDevicon.vue-內頁, HasDevice.vue-彈跳視窗
+.HasDevice{
+	color: $text-color;
+
+	//大框架(只有彈跳視窗有)
+	.form-wizard-AddDevice{
+		.title{
+      text-align: center;
+      color: $text-color
+    }
+    .agentDownload {
+      margin-left: 8px;
+      background-color: #ffffff;
+      border: 3px solid $theme-base;
+      color: #585858;
+      -webkit-box-shadow: 0 0 0 0 #ffffff;
+      box-shadow: 0 0 0 0 #ffffff;
+    }
+    table tr td {
+      max-width: 0;
+    }
+    .divButton {
+      padding-bottom: 10px;
+      text-align: center;
+      i{
+        color: #ffffff;
+      }
+    }
+    .form-group{
+      width: 100%;
+      width: 100% !important;
+      min-width: auto !important;
+      max-width: auto !important;
+      color: $text-color;
+    }
+    
+		
+    .justify-content-center{
+      color: $text-color;
+    }
+	}
+
+	.note{
+		color: $text-color;
+		justify-content: center;
+	}
+
+	//聯絡我們
+	.contactUs{
+		color: $theme-base !important;
+		border-bottom: 1px solid $theme-base;
+		&:hover{
+			color: $theme-base;
+		}
+	}
+	//有關key資訊
+	.linkKey{
+  	margin: 2em 2em 0em 2em;
+    @media (max-width: 500px){
+      margin: 1em 1em 0em 1em;
+    }
+  }
+
+	// 有關下載的區塊
+	.ActionAddForm{
+		width: 100%;
+		padding: 2rem;
+		@media (max-width: 500px){
+      padding: 1rem;
+      span{
+        font-size: 15px;
+      }
+      p{
+        font-size: 15px;
+      }
+    }
+	}
+	// 確認區，列出所選的設備所配的群組
+	.customTable{
+		width: 100%;
+	}
+
+	//新增群組
+	.newgroup{
+    color: $text-color;
+	}
+	
+	// 列出設備
+	.mobile-fix-height {
+    @media (min-width: 200px) and (max-width: 930px) {
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 14rem;
+      border: 1px rgb(233, 233, 233) solid;
+    }
+	}
+	
+	// 顯示IoTKey那些資訊
+	.noBoarder tbody tr {
+    background-color: transparent !important;
+    border: 0px solid #c8c8c8 !important;
+  }
+
+	//下一步按鈕
+	.divButton{
+    i{
+      color: #ffffff;
+    }
+	}
+
+	.custom-checkbox {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .vuestic-checkbox span {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+	}
+	.vuestic-tag-group .vuestic-tag {
+		max-width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block;
+	}
+	
+	.form-group{
+    width: 100% !important;
+	}
+	
+	// 僅限連接的設備文字區塊
+	.pnlConnected {
+    margin-left: 1rem;
+    margin-top: 2rem;
+  }
+
+}
+
+
+// ======================================================================= 細節
+// 表格設定
+.table td, .table th, .table thead th, .table thead td{
+	white-space: nowrap;
+}
+.table-responsive{
+	margin-bottom: 15px;
+}
+
+//按鈕相關
+.btn.btn-primary{
+	background-color:$theme-base;
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus{
+  box-shadow: none;
+}
+//群組按鈕
+.btn-group{
+	.btn.btn-primary:active, .btn.btn-primary:not([disabled]):not(.disabled):active{
+		background-color: #404040;
+	}
+}
+//不可按的按紐
+.btn.btn-primary[disabled], .medium-editor-toolbar .medium-editor-action[disabled], .btn.btn-primary[disabled]:hover, .medium-editor-toolbar .medium-editor-action[disabled]:hover{
+	background-color: $theme-base;
+	color: #ffffff;
+	opacity: 0.3;
+}
+
+.btn.btn-secondary:hover, .btn.btn-secondary:active, 
+.btn.btn-secondary:not([disabled]):not(.disabled):active{
+	border: 2px solid #9a9a9a;
+	background-color: #b1b1b1;
+	color: #ffffff;
+}
+//不可按的按紐
+.btn.btn-secondary[disabled^=disabled]{
+	border: 2px solid #9a9a9a;
+	background-color: #b1b1b1;
+	color: #ffffff;
+	pointer-events: none;
+}
+
+// icon顏色
+.text-success{
+	color: #38a277 !important;
+}
+
+//圈圈
+.rounded-icon{
+	.fa-arrow-left{
+		padding-left: 3px;
+	}
+	.fa-plus{
+		padding-left: 3px;
+	}
+	.fa-thumbtack{
+		padding-left: 3px;
+		padding-top: 3px;
+	}
+	.iconSchedule{
+		margin-top: -1px;
+		padding-left: 3px;
+		font-size: 23px !important;
+	}
+	.fa-trash{
+		padding-left: 3px;
+		font-size: 18px;
+	}
+	.fa-pencil-alt{
+		padding-left: 2px;
+		font-size: 18px;
+	}
+	.icoDisable {
+		padding-left: 2px;
+	}
+	.fa-clock{
+		padding-left: 2px;
+	}
+}
+// 麵包屑
+.vuestic-breadcrumbs{
+	.fa-angle-right{
+		vertical-align: middle;
+    padding-left: 3px;
+	}
+}
+
+// 增加設備的icon
+.HasDevice{
+	.addDeviceicon{
+		background-color: transparent;
+		border:2px solid $theme-base;
+		color: $theme-base;
+		&:hover{
+			border: 2px solid #9a9a9a;
+    	background-color: #b1b1b1;
+			color: #ffffff;
+		}
+		i{
+			font-size: 20px;
+			padding-left: 2px;
+		}
+	}
+	// 旁邊的input 因為會影響icon寬度，所以要縮寬度
+	.input-group{
+		width: 94%;
+	}
+}
+
+//彈跳視窗的icon
+.swal2-icon.swal2-warning{
+	align-items: center;
+}
+.swal2-icon.swal2-warning::before{
+	padding-left: 11px;
+}
+
+
+// 表格左上角工具按鈕
+.ActionTable .ActionBtn, 
+.AccountTable .AccountBtn,
+.GroupTable .GroupBtn,
+.EventTable .ActionBtn,
+.ActionList .ActionBtn,
+.AlertTable .ActionBtn,
+.RuleEngineView .RuleBtn,
+.StorageList .ActionBtn,
+.PackageList .ActionBtn,
+.Upgrade .ActionBtn{
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: auto;
+	margin-bottom: 15px;
+	.btn{
+		background-color:transparent;
+    color: $text-color;
+	}
+	i{
+		&.fa-save{
+			font-size: 25px;
+		}
+	}
+}
+.btn-group{
+	.btn.btn-primary, .medium-editor-toolbar .medium-editor-action{
+		background-color:transparent;
+		color: $text-color;
+	}
+}
+
+.hideFilter {
+  opacity: 0.5;
+}
+
+
+
+// 有帳號相關的下拉
+.noclick{
+  pointer-events: none;
+  cursor: none;
+  span[title^=--All--]{
+    color:#cecece;
+  }
+}
+span[title^=-Role]{
+  color: #969696;
+  pointer-events: none;
+  margin-left: -10px;
+  cursor: none;
+}
+
+
+
+//表格
+.table-hover{
+	tbody{
+		tr{
+			&:hover{
+				color: $text-color;
+			}
+		}
+	}
+}
+
+
+//裡面的
+.custom-title{
+	color: $theme-base;
+  cursor: pointer;
+	font-weight: bold;
+	width: 95%;
+	overflow: hidden;
+	text-overflow : ellipsis;
+	&:hover{
+		color: $theme-base;
+	}
+}
+
+//表格的左下角
+.VueTables.VueTables--client{
+	position: relative;
+	margin-bottom: 90px;
+}
+.VuePagination{
+	position: absolute;
+	color: $text-color;
+}
+//頁碼
+.page-item{
+	&.active{
+		.page-link{
+			background: $theme-base;
+			border-color: $theme-base;
+			&:focus{
+				box-shadow: none;
+			}
+		}
+	}
+	&.disabled{
+		.page-link{
+			background: rgba(255,255,255,0.03);
+			&:focus{
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+
+.page-link{
+	color: $text-color;
+	background-color: rgba(255,255,255,0.03);
+
+	&:hover{
+		color: #4a4a4a;
+	}
+	&:focus{
+		box-shadow: none;
+	}
+}
+
+//表格的右下角
+.AssignedLicensed {
+	display: block;
+	text-align: right;
+	margin-bottom: 12px;
+	color: $text-color;
+	.AssignedNum {
+		font-weight: bold;
+		color: $theme-base;
+	}
+	.LicensedNum {
+		font-weight: bold;
+	}
+}
+
+//切換按鈕旁邊的文字
+.labelStyle{
+	/*font-size: 0.6rem;*/
+	color: $theme-base;
+	font-weight: 600;
+	text-transform: uppercase;
+	&+span{
+		color: $text-color;
+		padding-left: 15px;
+	}
+}
+
+
+
+//ly設定
+.ly-tab{
+	border-bottom: 1px solid $border-color;
+	box-shadow: none;
+	.ly-tabbar{
+		background-color:transparent;
+		border-bottom: 0;
+		box-shadow: none;
+		width: 97%;
+		margin: 0 auto;
+	}
+	.ly-tab-list{
+		width: 100%;
+		padding: 14px 0px;
+		@media (max-width:532px){
+			width: auto;
+		}
+		.ly-tab-item{
+			text-align: center;
+			margin-left: 0px;
+			font-weight:bold;
+			font-size:large;
+			z-index: 1;
+			@media (max-width:532px){
+				margin-left: 15px;
+				width: auto !important;
+				white-space: nowrap;
+			}
+			span{
+				color:$text-color;
+				@media (max-width:500px){
+					font-size: 14px;
+    			letter-spacing: -0.3px;
+				}
+			}
+		}
+	}
+	.ly-tab-active-bar{
+		display: none;
+		@media (max-width:532px){
+			display: block;
+		}
+	}
+	.lastLy{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .underLine{
+    height: 3px;
+    background: $theme-base;
+    position: absolute;
+    left: 0;
+    bottom:18px;
+		transition: all 0.3s;
+		@media (max-width:532px){
+			display: none;
+		}
+  }
+}
+
+@media (max-width:930px ){
+  .content{
+		.content{
+			padding: 0.625em 0.7rem;
+		}
+	} 
+}
+
+// 亮燈
+.online, .offline, .abnormal, .enable, .disabled, .disable{
+	text-align: center;
+  display: block;
+}
+
+// icon符號
+i.fa, i.fas, i.far, .fab{
+	font-size: 22px;
+}
+
+// 表格內icon
+// 刪除icon
+.disableAction{
+	text-align: center;
+  display: block;
+}
+
+
+// 設置/規則引擎(為了隱藏只要放線上就一直出現怪物件)
+.RuleEngineView{
+	.VueTables__search{
+		display: none;
+		margin: 0;
+		min-height: 0;
+		.form-group.VueTables__limit{
+			min-height: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+.form-group.form-inline.pull-left.VueTables__search{
+	display: none;
+}
+.form-group.form-inline.pull-right.VueTables__limit{
+	display: none;
+}
+
+
+.form-group {
+  .custom-label {
+    position: absolute;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    pointer-events: none;
+    padding-left: 0.1375rem;
+    z-index: 1;
+    transition: all 0.28s ease;
+  }
+}
+.custom-label {
+	font-size: 1rem;
+	color: $theme-base;
+	font-weight: 600;
+	text-transform: uppercase;
+	top: -0.88rem;
+	left: 0;
+}
+.flex-center{
+	justify-content: center;
+}
+
+// v-tool
+.tooltip-custom{
+	.tooltip-inner{
+		// background: #3e3e3e;
+		font-size: 15px;
+		padding: 7px 12px;
+	}
+	&[x-placement^="top"]{
+		.tooltip-arrow{
+			border-style: solid;
+			width: 0;
+			height: 0;
+			border-color: #3e3e3e transparent transparent transparent;
+			border-width: 10px 10px 0 10px;
+			position: absolute;
+			bottom: -9px;
+			
+		}
+	}
+}
+
+.vuestic-tooltip{
+	background-color: transparent;
+	.tooltip-inner{
+		background-color: rgba(31, 31, 31, 0.95);
+	}
+}
+
+.ActionEdit{
+	.ActionEdiForm {
+		padding: 2rem 2.3rem;
+		.form-group {
+			margin-bottom: 2.5rem;
+		}
+  }
+}
+
+
+//打勾勾check方框
+.abc-checkbox-primary input[type="checkbox"]:checked + label::before, 
+.abc-checkbox-primary input[type="radio"]:checked + label::before{
+	background-color: $theme-base;
+  border-color: $theme-base;
+}
+.abc-checkbox label .abc-label-text, .abc-radio label .abc-label-text{
+	color: $text-color;
+}
+.abc-radio-primary input[type="radio"]:checked + label::before{
+	border-color: $theme-base;
+}
+.abc-radio-primary input[type="radio"]:checked + label::after{
+	background-color: $theme-base;
+}
+
+.AppNavbar2{
+	.vld-overlay{
+		z-index: 9999;
+		align-items: flex-start;
+		.vld-background{
+			opacity: 0.8;
+		}
+		.vld-icon{
+			margin-top: 44vh;
+		}
+	}
+}
+.vld-overlay{
+	.vld-background{
+		background: $widget-bg !important;
+	}
+}
+
+
+//次內頁
+.InnerInfo {
+	padding: 25px;
+}
+.GroupBtnDiv{
+  margin: 0 auto;
+}
+
+// 彈跳視窗
+.customTable{
+	tr{
+		td{
+			color:$text-color;
+		}
+	}
+}
+
+//有關OTA內頁
+.deviceName{
+	color: $text-color;
+	padding-left: 16px;
+}
+.ProgramInfo{
+	.VueTables__search-field {
+    display: block;
+	}
+}
+
+.VueTables__limit-field{
+	display: none;
+}
+.VueTables__search-field{
+	display: none;
+}
+
+.backIcon{
+	i{
+		color: #ffffff !important;
+	}
+}
+
+// 設置的配置
+.PowerSetup{
+	color: $text-color;
+	.btn-sm-2{
+    padding: 4px 16px !important;
+    font-size: 14px;
+    background: $theme-base;
+		color: #ffffff;
+		margin-bottom: 8px;
+		letter-spacing: 0px;
+	}
+	.mb-4{
+    margin-bottom: 40px;
+	}
+	.device-list{
+    font-size: 14px;
+    .vuestic-tag{
+      height: 25px;
+      color: $text-color;
+    }
+	}
+	.justify-content-center{
+		padding-bottom: 30px;
+	}
+	.note{
+		color: $theme-base;
+	}
+}
+
+// 設備->設備監控 -> 硬碟空間
+.table-event{
+  .pagination{
+		font-size: 14px;
+    white-space: nowrap;
+    letter-spacing: -1px;
+    margin-left: 0;
+	}
+	.page-link{
+    padding: 0.5rem 0.5rem;
+	}
+	.table-event-box{
+
+	}
+}
+
+.VuePagination__pagination-item-prev-chunk,
+.VuePagination__pagination-item-next-chunk{
+	letter-spacing: -1px;
+}
+
+
+// 文件 -> FAQ
+.faq{
+	background: $widget-bg;
+	padding: 28px 34px;
+	color: $text-color;
+	h2{
+		margin-bottom: 10px;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	hr{
+		border-bottom: 1px solid $border-color;
+	}
+	ul{
+		margin-bottom: 30px;
+	}
+	blockquote{
+		border-left: 5px solid #dadada;
+		padding-left: 20px;
+	}
+	p{
+		margin-bottom: 30px;
+		color: #717171;
+		font-size: 16px;
+		line-height: 1.8;
+		font-family: Arial;
+  	font-weight: 100;
+	}
+	a{
+		border-bottom: 1px solid;
+	}
+}
+
+.themeColor{
+	color: $theme-base !important;
+}
+.white-color{
+	color: #ffffff !important;
+}
+
+// 增加新設備
+.HasDevice{
+	@media (min-width: 300px) and (max-width: 930px) {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 14rem;
+    border: 1px rgb(233, 233, 233) solid;
+  }
+}
+
+.Prohibited{
+	opacity: 0.6;
+	cursor: not-allowed;
+	div{
+		cursor: not-allowed;
+	}
+	a{
+		cursor: not-allowed;
+	}
+}
+
+// 編輯/新增帳號
+.EditAcunt{
+	//自動帶入
+	.simpleInput{
+    tr{
+      td{
+        &:nth-child(1){
+          width: 200px;
+        }
+        &:nth-child(2){
+          color: $text-color;
+        }
+      }
+    }
+	}
+	.form-group{
+    margin-bottom: 2rem;
+    .input-icon{
+      right: 0;
+    }
+	}
+	.switch{
+		width: 100%;
+		.labelItem {
+      width: 100px;
+    }
+    .switchItem {
+      width: 100px;
+    }
+	}
+	.noInput{
+    display: table-cell;
+  }
+  .switchTable {
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 0;
+    .table-responsive{
+      margin-bottom: 0px;
+      padding: 11px 0;
+    }
+  }
+  .specilinputphone{
+    position: absolute;
+    width: 84%;
+    bottom: 16px;
+	}
+	.AddAcuntBtn {
+		margin-top: 1rem;
+		display: flex;
+		justify-content: center;
+	}
+}
+.AddAcunt{
+	.specilinputphone{
+		width: 64% !important;
+	}
+	.table-responsive{
+		.form-group{
+			margin-bottom:0px;
+		}
+	}
+}
+
+//帳號下拉
+.disableAction {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.noclick {
+  pointer-events: none;
+  cursor: none;
+  span[title^="--All--"] {
+    color: #cecece;
+  }
+}
+span[title^="-Role"] {
+  color: #969696;
+  pointer-events: none;
+  margin-left: -10px;
+  cursor: none;
+}
+
+
+.form-group{
+	margin-bottom: 2rem;
+	.text-danger{
+		position: absolute;
+	}
+}
+.has-error{
+	.input-icon{
+    color: #e34a4a !important;
+	}
+}
+
+
+.PatchAcuntBtnDiv {
+	margin: 0 auto;
+}
+
+
+// 連接設備
+
+// 選取顏色
+.colorname {
+	font-size: 15px;
+	line-height: 1.2;
+	white-space: nowrap;
+}
+.vuestic-color-dropdown .btn{
+	padding: 0.5rem 0.7rem !important;
+	white-space: nowrap;
+	width: 120px;
+	height: 40px;
+}
+#swal2-content {
+	white-space: pre-wrap;
+}
